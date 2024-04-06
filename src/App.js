@@ -2,7 +2,7 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div>App Moz</div>
+    <div className='here'>App Moz</div>
   )
 }
 
