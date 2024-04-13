@@ -25,9 +25,11 @@ export default function EmployeesList(props) {
   const history = useHistory();
 
   const handleViewEmployee = (employeeId) => {
-    console.log(employeeId);
-    // console.log(history);
     history.push(`/employees/${employeeId}`);
+  }
+
+  const handleUpdateEmployee = (employeeId) => {
+    history.push(`/update-employee/${employeeId}`);
   }
 
   return (<div className="employee-list-container">
@@ -40,13 +42,15 @@ export default function EmployeesList(props) {
       </li>
       {
         employees.length > 0 ?
-        employees.map((employee, idx) => {
-          return (<li key={idx} className="employee-item">
-            <div>
-              <strong>{employee.firstName} {employee.lastName}</strong> - {employee.emailId}
-            </div>
-            <button className="view-button" onClick={() => { handleViewEmployee(employee.id) }}>view</button></li>);
-        }) : <li>No Data to display...</li>
+          employees.map((employee, idx) => {
+            return (<li key={idx} className="employee-item">
+              <div>
+                <strong>{employee.firstName} {employee.lastName}</strong> - {employee.emailId}
+              </div>
+              <button className="view-button" onClick={() => { handleViewEmployee(employee.id) }}>view</button>
+              <button className="view-button" onClick={() => { handleUpdateEmployee(employee.id) }}>Update</button>
+            </li>);
+          }) : <li>No Data to display...</li>
       }
     </ul>
   </div>);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
-export default function EmployeeInfo() {
+export default function EmployeeInfo(props) {
   const url = 'http://localhost:8080/employee';
   const { id } = useParams();
   const employeeId = Number(id);
@@ -35,6 +35,8 @@ export default function EmployeeInfo() {
     //   setIsLoading(false);
     // }, 3000);
   }, []);
+
+  console.log(props);
 
   return (<div className="employee-info-container">
     <h2>Employee Information</h2>

@@ -4,6 +4,7 @@ import Home from './components/Home';
 import EmployeesList from './components/EmployeesList';
 import EmployeeForm from './components/EmployeeForm';
 import EmployeeInfo from './components/EmployeeInfo';
+import EmployeeUpdateForm from './components/EmployeeUpdateForm';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/employees/:id" component={EmployeeInfo}/>
         {/* <Route path="/employee-info" component={EmployeeInfo}/> */}
         <Route path="/create-employee" component={EmployeeForm}/>
+        <Route path="/update-employee/:id" exact component={EmployeeUpdateForm}/>
       </Switch>
     </BrowserRouter>
   )
