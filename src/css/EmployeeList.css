@@ -1,4 +1,4 @@
-.user-list-container {
+.employee-list-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -10,15 +10,16 @@
 .list-title {
   font-size: 24px;
   font-weight: bold;
+  text-align: center;
   color: #333;
 }
 
-.user-list {
+.employee-list {
   list-style-type: none;
   padding: 0;
 }
 
-.user-item {
+.employee-item {
   padding: 10px;
   margin-bottom: 8px;
   background-color: #fff;
@@ -26,6 +27,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.user-item:hover {
+.employee-item:hover {
   background-color: #f0f0f0;
 }
