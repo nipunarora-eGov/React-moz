@@ -34,7 +34,7 @@ export default function EmployeeForm(props) {
           console.log('Failed to post data');
         }
         const data = await response.json();
-        console.log('Rsponse data: ', data);
+
         setIsSuccess(true);
       } catch (error) {
         setIsSuccess(false);

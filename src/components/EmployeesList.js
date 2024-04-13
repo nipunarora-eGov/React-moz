@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function EmployeesList(props) {
   const url = 'http://localhost:8080/employee'
@@ -19,16 +20,33 @@ export default function EmployeesList(props) {
       }
     }
     useFetch();
-  }, [employees]);
+  }, []);
+
+  const history = useHistory();
+
+  const handleViewEmployee = (employeeId) => {
+    console.log(employeeId);
+    // console.log(history);
+    history.push(`/employees/${employeeId}`);
+  }
 
   return (<div className="employee-list-container">
     <h1 className="list-title">Employees</h1>
     <ul className="employee-list">
-      <li className="employee-item"><strong>Name</strong> - email</li>
+      <li className="employee-item">
+        <div>
+          <strong>Name</strong> - email
+        </div>
+      </li>
       {
+        employees.length > 0 ?
         employees.map((employee, idx) => {
-          return (<li key={idx} className="employee-item"><strong>{employee.firstName} {employee.lastName}</strong> - {employee.emailId}</li>);
-        })
+          return (<li key={idx} className="employee-item">
+            <div>
+              <strong>{employee.firstName} {employee.lastName}</strong> - {employee.emailId}
+            </div>
+            <button className="view-button" onClick={() => { handleViewEmployee(employee.id) }}>view</button></li>);
+        }) : <li>No Data to display...</li>
       }
     </ul>
   </div>);
