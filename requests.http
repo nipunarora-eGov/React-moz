@@ -1,0 +1,10 @@
+@url=http://localhost:8080/employee
+
+POST {{url}}/_create
+Content-Type: application/json
+
+{
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "emailId": "janedoe@example.com"
+}

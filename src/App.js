@@ -1,21 +1,22 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
-import Contact from './components/Contact';
-import UsersList from './components/UsersList';
-import UsersListWithHook from './components/UsersListWithHook';
-import UserForm from './components/UserForm';
+import EmployeesList from './components/EmployeesList';
+import EmployeeForm from './components/EmployeeForm';
+import EmployeeInfo from './components/EmployeeInfo';
+import EmployeeUpdateForm from './components/EmployeeUpdateForm';
+
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/contact"  component={Contact} />
-      <Route path="/users"  component={UsersList} />
-      <Route path="/hook-fetch-users"  component={UsersListWithHook} />
-      <Route path="/create-user"  component={UserForm} />
-      
-      </Switch>    
+        <Route path="/" exact component={Home} />
+        <Route path="/employees" exact component={EmployeesList} />
+        <Route path="/employees/:id" component={EmployeeInfo}/>
+        {/* <Route path="/employee-info" component={EmployeeInfo}/> */}
+        <Route path="/create-employee" component={EmployeeForm}/>
+        <Route path="/update-employee/:id" exact component={EmployeeUpdateForm}/>
+      </Switch>
     </BrowserRouter>
   )
 }
