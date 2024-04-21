@@ -2,10 +2,12 @@
 
 
 import React,{useState,useEffect} from 'react'
+import { useSelector } from 'react-redux'
+import { useMyContext } from '../utils/context'
 
 
 const UsersList = (props) => {
-
+  
   const [users,setUsers] = useState([])
   
   useEffect(() => {
@@ -31,6 +33,14 @@ const UsersList = (props) => {
     fetchUsers()
   },[])
   
+  
+  const count = useSelector(state => {
+    return state.count
+  })
+  console.log("count from usersList comp(redux)",count);
+
+  const {state,dispatch} = useMyContext()
+  console.log("count from usersList comp(context)",state.count);
 
   return (
     <div className='user-list-container'>
